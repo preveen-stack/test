@@ -33,7 +33,6 @@ void print_linked_list(struct node *head) {
 	do {
 		printf("%c %s ", temp->name, temp->next == NULL ? "\n" : "->");
 		temp = temp->next;
-
 	} while (temp!=NULL);
 }
 
