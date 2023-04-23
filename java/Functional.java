@@ -12,6 +12,5 @@ public class Functional {
                 funcJava.printMessage.accept("Functional Programming in Java");
 
                 funcJava.printMessage.accept("sqrt of 4.0 is " + funcJava.sqrt.apply(4.0));
-
         }
 }
