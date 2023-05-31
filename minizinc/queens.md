@@ -18,3 +18,6 @@ solve satisfy;
 % Output solution
 output ["\(queens)"];
 ```
+
+<img width="790" alt="image" src="https://github.com/preveen-stack/test/assets/31464911/f07f38f7-321a-4b31-9e72-b91351d04c02">
+
