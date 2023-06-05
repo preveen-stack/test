@@ -8,15 +8,22 @@ const hosts = ['google.com', 'example.com', 'github.com', 'npmjs.com'];
 // Function to test reachability of each host
 function testReachability(host) {
   return new Promise((resolve, reject) => {
+    // Get the configured DNS server
+    const dnsServer = dns.getServers()[0];
+    console.log(`Configured DNS server: ${dnsServer}`);
+
     // Perform DNS resolution and display debugging information
-    dns.lookup(host, (error, address) => {
+    dns.lookup(host, { all: true }, (error, addresses) => {
       if (error) {
         console.error(`DNS resolution failed for ${host}: ${error}`);
         reject();
         return;
       }
 
-      console.log(`Resolved ${host} to IP address: ${address}`);
+      console.log(`Resolved ${host} to IP addresses:`);
+      addresses.forEach((address) => {
+        console.log(`- ${address.address}`);
+      });
 
       const options = {
         method: 'HEAD',
@@ -52,4 +59,5 @@ async function testAllHosts() {
 
 // Start testing
 testAllHosts();
+
 ```
